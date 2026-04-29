@@ -112,7 +112,7 @@ def checkMail():
         status, messages = imap.select("INBOX")
         messages = int(messages[0])
 
-        if messages != rem:
+        if messages > rem:
             res, msg = imap.fetch(str(messages), "(RFC822)") 
             for response in msg:
                 if isinstance(response, tuple):
@@ -130,10 +130,17 @@ send_email_gmail(
     subject= "Test Email from WaffleBot",
     body= "This is a test email sent from WaffleBot to verify the email sending functionality."
 )
-"""
+
 print("Email sent, now checking for new emails...")
 result = checkMail()
 print(f"Messages: {result}")   
+"""
+
+# Only run when script is executed directly, not when imported as module
+if __name__ == "__main__":
+    print("Email sent, now checking for new emails...")
+    result = checkMail()
+    print(f"Messages: {result}")   
 
 
 # Close the connection and logout (you can move this to outside the loop)

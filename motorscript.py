@@ -5,10 +5,21 @@ from Gmail_API import get_contents as gc
 from Gmail_API import send_email_gmail
 import time
 
-# BCM pins
-motor1 = Motor(16, 18)
+#physical pins are not in motor class but are
+# BCM pins 11 and 8 are used for the motor
+motor1 = Motor(8, 11)
+
 #boolean to track if the door is closed or not, starts as closed
 closed = True
+
+def testMotor():
+    print("Testing motor clockwise...")
+    motor1.clockwise()
+    time.sleep(3)
+    
+    motor1.stop()
+    
+
 
 def Rotation():
     global closed
@@ -31,7 +42,7 @@ def Rotation():
             motor1.clockwise()
             time.sleep(7)
             
-                #motor1.stop()
+            motor1.stop()
             #sets the door to open
             closed = False
             
@@ -41,9 +52,9 @@ def Rotation():
             
             #runs the motor counterclockwise for 5 seconds to close the door
             motor1.counterclockwise()
-            time.sleep(5)
+            time.sleep(7)
             
-                #motor1.stop()
+            motor1.stop()
             #sets the door to closed
             closed = True
             
@@ -75,7 +86,10 @@ def Rotation():
         
         else:
             print("Invalid message received.")
-            # ⚠️ You no longer have access to sender here
-
-        
+               # ⚠️ You no longer have access to sender here
+            print(f"[DEBUG] Received command: {repr(contents)}")
+    
+    
 Rotation()
+
+#testMotor()   
