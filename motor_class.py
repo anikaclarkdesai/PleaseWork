@@ -29,3 +29,14 @@ class Motor:
         self.pin2.off()
         self._running = False   
         """
+    def clockwise(self):
+        GPIO.output(self.pin1, GPIO.HIGH)
+        GPIO.output(self.pin2, GPIO.LOW)
+
+    def counterclockwise(self):
+        GPIO.output(self.pin1, GPIO.LOW)
+        GPIO.output(self.pin2, GPIO.HIGH)
+
+    def stop(self):
+        GPIO.output(self.pin1, GPIO.LOW)
+        GPIO.output(self.pin2, GPIO.LOW)
