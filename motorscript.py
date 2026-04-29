@@ -71,7 +71,8 @@ def Rotation():
             print("Cycle Complete!")
         
             #sets the door to closed
-            closed = True
+            closed = True       
+        
         else:
             print("Invalid message received.")
             # ⚠️ You no longer have access to sender here
