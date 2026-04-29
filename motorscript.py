@@ -7,7 +7,7 @@ import time
 
 #physical pins are not in motor class but are
 # BCM pins 11 and 8 are used for the motor
-motor1 = Motor(8, 11)
+motor1 = Motor(8,11 )
 
 #boolean to track if the door is closed or not, starts as closed
 closed = True
@@ -65,7 +65,7 @@ def Rotation():
             
             #runs the motor clockwise for 7 seconds to open the door  
             motor1.clockwise()
-            time.sleep(7)
+            time.sleep(3)
             print("Door is open! Waiting 5 seconds before closing...")
             
             #stops the motor and rests

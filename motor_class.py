@@ -13,7 +13,7 @@ class Motor:
         self._running = False
         self.pin1 = OutputDevice(pin1, active_high=True, initial_value=False)
         self.pin2 = OutputDevice(pin2, active_high=True, initial_value=False)
-
+"""
     def clockwise(self):
         self.pin1.on()
         self.pin2.off()
@@ -28,4 +28,4 @@ class Motor:
         self.pin1.off()
         self.pin2.off()
         self._running = False   
-        
+        """
